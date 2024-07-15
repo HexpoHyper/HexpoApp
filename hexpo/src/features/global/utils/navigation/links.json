@@ -1,0 +1,44 @@
+{
+    "routes": [
+        {
+            "name": "Dashboard",
+            "path": "/",
+            "media": {
+                "icon": "",
+                "icon-active": ""
+            }
+        },
+        {
+            "name": "Empresas",
+            "path": "/empresas",
+            "media": {
+                "icon": "",
+                "icon-active": ""
+            }
+        },
+        {
+            "name": "Productos",
+            "path": "/productos",
+            "media": {
+                "icon": "./assets/icons/box-icon.svg",
+                "icon-active": ""
+            }
+        },
+        {
+            "name": "Prospectos",
+            "path": "/prospectos",
+            "media": {
+                "icon": "",
+                "icon-active": ""
+            }
+        },
+        {
+            "name": "About",
+            "path": "/about",
+            "media": {
+                "icon": "",
+                "icon-active": ""
+            }
+        }
+    ]
+}

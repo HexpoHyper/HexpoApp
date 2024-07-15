@@ -1,0 +1,19 @@
+.header-container{
+    background-color: #170175;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-height: 6vh;
+}
+
+.label-container{
+    padding: 8px;
+    background-color: #3F00FF;
+    color: white;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
