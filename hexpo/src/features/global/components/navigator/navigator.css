@@ -33,6 +33,18 @@
     cursor: pointer;
 }
 
-.navigator-link .navigator-link-active{
-    background-color: #170175   ;
+.navigator-link-active{
+    padding: 1rem .5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    background-color: #170175;
+    color: white;
+}
+
+.navigator-link-active:hover{
+    background-color: #170175;
+    cursor: pointer;
 }

@@ -6,10 +6,6 @@ import { navigatorIconsMap } from '../../assets/icons/index.js';
 import './navigator.css';
 
 const Navigator = () => {
-    const getNavLinkClassName = (isActive) => {
-        return isActive ? 'navigator-link navigator-link-active' : 'navigator-link';
-    };
-
     return (
         <div className="navigator-container">
             <div className="flex flex-column">
@@ -18,7 +14,7 @@ const Navigator = () => {
                         <NavLink 
                             key={link.name} 
                             to={link.path} 
-                            className={({ isActive }) => getNavLinkClassName({ isActive })}
+                            className={({ isActive }) => isActive ? 'navigator-link-active' : 'navigator-link'}
                         >
                         <div key={index} className='flex flex-row gap-1' >
                             <ReactSVG className='navigator-icon' src={navigatorIconsMap[link.media.icon]} /> 
