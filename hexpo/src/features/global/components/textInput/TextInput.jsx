@@ -10,9 +10,12 @@ const TextInput = ({label, type, placeholder, value, onChange, className, maxLen
     
 
     return(
+       
         <div className="text-input-container">
             <label>{label}</label>
-            <input type={type} placeholder={placeholder} value={value} onChange={onChange} className={className ? className : "default-text-input"}/>
+            {
+                type === "area" ? <textarea placeholder={placeholder} value={value} onChange={onChange} className={className ? className : "default-text-area"} maxLength={maxLength} /> : <input type={type} placeholder={placeholder} value={value} onChange={onChange} className={className ? className : "default-text-input"}/>
+            }
         </div>
     )
 }
