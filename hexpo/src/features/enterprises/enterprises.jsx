@@ -52,8 +52,10 @@ const testBranches = [
 function Enterprises(){
     return(
         <div>
-            <h2>Empresa</h2>
-            <p>Gestiona tu empresa y sucursales. Modifica el perfil, información de contacto y productos relacionados.</p>
+            <div className="flex flex-column">
+                <text className="font-semibold font-large">Empresa</text>
+                <text>Gestiona tu empresa y sucursales. Modifica el perfil, información de contacto y productos relacionados.</text>
+            </div>
             <div className="enterprise-card-grid">
                 <EnterpriseCard/>
                 {
@@ -62,12 +64,12 @@ function Enterprises(){
                     })
                 }
             </div>
-            <h2>Sucursales</h2>
+            <text className="font-semibold font-big font-large">Sucursales</text>
             <div className="flex flex-row flex-space-between">
-                <p>Administra las sucursales de tu empresa. Modifica la información de contacto y productos relacionados.</p>
+                <text>Administra las sucursales de tu empresa. Modifica la información de contacto y productos relacionados.</text>
                 <NavLink to="/enterprises/branches/new" className="flex flex-row">
                         <img src="https://picsum.photos/200" alt="Agregar sucursal" className="icon"/>
-                        <h4>Agregar sucursal</h4>
+                        <text>Agregar sucursal</text>
                 </NavLink>
             </div>
             <div className="enterprise-branch-card-grid">

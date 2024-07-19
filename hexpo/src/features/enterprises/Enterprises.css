@@ -9,6 +9,17 @@
     max-height: 350px;
 
     overflow-y: auto;
+    margin-top: 8px;
+}
+
+.enterprise-card-grid::-webkit-scrollbar {
+    width: 8px;
+    background-color: red;
+}
+
+.enterprise-card-grid::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 4px;
 }
 
 .enterprise-branch-card-grid {
@@ -18,11 +29,22 @@
     justify-content: center;
     width: 100%;
     height: 100%;
+    margin-top: 8px;
 
     max-height: 350px;
 
     overflow-y: auto;
     overflow-y: auto;
+}
+
+.enterprise-branch-card-grid::-webkit-scrollbar {
+    width: 8px;
+    background-color: red;
+}
+
+.enterprise-branch-card-grid::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 4px;
 }
 
 .new-branch-button{

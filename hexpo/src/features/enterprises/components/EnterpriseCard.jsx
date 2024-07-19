@@ -13,34 +13,33 @@ const EnterpriseCard = ({enterprise}) => {
 
     return enterprise ? (
         <div className="enterprise-card-container">
-            <div>
-                <div className='flex flex-row flex-space-between'>
-                    <div className='flex flex-row'>
-                        <h6 className='font-disabled'>id:</h6>
-                        <h6>{enterprise.id}</h6>
-                    </div>
-                    <h6>{enterprise.status}</h6>
+            <div className='flex flex-row flex-space-between'>
+                <div className='flex flex-row font-small'>
+                    <text className='font-disabled'>id:</text>
+                    <text>{enterprise.id}</text>
                 </div>
-                <div className='flex flex-row'>
-                    <img src={enterprise.logo} alt={enterprise.name} className="enterprise-card-logo"/>
-                    <h5>{enterprise.name}</h5>
-                </div>
-                <div className='flex flex-row enterprise-card-background-label'>
-                    <h6 className='font-disabled'>Estado: </h6>
-                    <h6>{enterprise.state}</h6>
-                </div>
-                <div className='flex flex-row enterprise-card-background-label'>
-                    <h6 className='font-disabled'>Ciudad: </h6>
-                    <h6>{enterprise.city}</h6>
-                </div>
-                <NavLink to={`/enterprise/${enterprise.id}`}>
-                    <Button text="Editar Perfil" />
-                </NavLink>
+                <text className='font-semibold'>{enterprise.status}</text>
             </div>
+            <div className='flex flex-row'>
+                <img src={enterprise.logo} alt={enterprise.name} className="enterprise-card-logo"/>
+                <text className='font-bold'>{enterprise.name}</text>
+            </div>
+            <div className='flex flex-row background-label'>
+                <text className='font-disabled'>Estado: </text>
+                <text className='font-semibold'>{enterprise.state}</text>
+            </div>
+            <div className='flex flex-row background-label'>
+                <text className='font-disabled'>Ciudad: </text>
+                <text className='font-semibold'>{enterprise.city}</text>
+            </div>
+            <NavLink to={`/enterprise/${enterprise.id}`}>
+                <Button text="Editar Perfil" />
+            </NavLink>
         </div>
     ) : (
         <NavLink to="/registrar-nueva-empresa" className="enterprise-card-container new-enterprise">
-            <h5>Registrar nueva empresa</h5>        
+            <text >Registrar nueva empresa</text> 
+            <text>Se creará una empresa que comenzará a mostrarse a compradores en Hexpo</text>       
         </NavLink>
     );    
 };
