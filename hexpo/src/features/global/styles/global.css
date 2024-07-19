@@ -4,6 +4,7 @@
 *{
     transition: all 0.3s;
     font-family: 'Montserrat', sans-serif;
+    color: #0B0136;
 }
 
 .app{
@@ -15,10 +16,11 @@
 .font-light{
   color: #FFFFFF;
 }
-
-.font-dark{
-  color: #3F00FF;
+.font-disabled{
+  color: #808080;
 }
+
+/*Font Sizes*/
 
 h1{
   line-height: 0;
@@ -43,6 +45,10 @@ h4{
 h5{
   line-height: 0;
   font-size: 1.25rem;
+}
+
+h6{
+  line-height: 0;
 }
 
 body{
@@ -78,6 +84,11 @@ body{
 
 .flex-space-around{
   justify-content: space-around;
+}
+
+/*Gaps*/
+.gap-1{
+  margin: 1rem;
 }
 
 

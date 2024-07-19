@@ -1,39 +1,36 @@
 import React from 'react';
-
-// Style
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import {ReactSVG} from 'react-svg';
+import links from '../../utils/navigation/links.json';
+import { navigatorIconsMap } from '../../assets/icons/index.js';
 import './navigator.css';
 
-// Libs
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
-import { ReactSVG } from 'react-svg'
-
-// Components
-import Dashboard from '../../../dashboard/dashboard';
-import links from '../../utils/navigation/links.json';
-import Box from "../../assets/icons/box-icon.svg";
-
 const Navigator = () => {
-
-    const getNavLinkClassName = ({ isActive }) => {
+    const getNavLinkClassName = (isActive) => {
         return isActive ? 'navigator-link navigator-link-active' : 'navigator-link';
-     };
+    };
 
     return (
         <div className="navigator-container">
             <div className="flex flex-column">
-                <ReactSVG src={Box}/>
-                { links.routes.map((link, index) => {
+                {links.routes.map((link, index) => {
                     return (
-                        <div key={index} className="navigator-link">
-                            <ReactSVG alt="Patata" src={link.media.icon}/>
-                            {link.name}
+                        <NavLink 
+                            key={link.name} 
+                            to={link.path} 
+                            className={({ isActive }) => getNavLinkClassName({ isActive })}
+                        >
+                        <div key={index} className='flex flex-row gap-1' >
+                            <ReactSVG className='navigator-icon' src={navigatorIconsMap[link.media.icon]} /> 
+                            <text>{link.name}</text>
                         </div>
-                    )})
-                }
+                        <ReactSVG className='navigator-icon' src={navigatorIconsMap['arrow']} />
+                        </NavLink>
+                    );
+                })}
             </div>
         </div>
-    )
-    
-}
+    );
+};
 
 export default Navigator;

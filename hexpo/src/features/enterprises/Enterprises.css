@@ -1,0 +1,34 @@
+.enterprise-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(540px, 1fr)); 
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+}
+
+.enterprise-branch-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    max-height: 350px;
+
+    overflow-y: auto;
+    overflow-y: auto;
+}
+
+.new-branch-button{
+    width: 20%;
+    height: 100%;
+
+    background-color: #F2F2F2;
+    
+}

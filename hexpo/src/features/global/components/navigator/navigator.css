@@ -10,12 +10,22 @@
     height: 100%;
 }
 
+.navigator-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .navigator-link{
     padding: 1rem .5rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.navigator-link:visited{
+    color: #0B0136;    
 }
 
 .navigator-link:hover{

@@ -1,0 +1,27 @@
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px;
+}
+
+.default-button{
+    background-color: #170175;
+    color: #FFFFFF;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-weight: 600;
+    width: 100%;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.default-button:hover{
+    background-color: #C9C9C9;
+    color: #170175;
+}
