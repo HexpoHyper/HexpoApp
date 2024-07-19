@@ -6,16 +6,30 @@
     background-color: #ffffff;
 
     width: 100%;
-    max-width: 20vw;
+    max-width: 16vw;
     height: 100%;
 }
 
+.navigator-icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
 .navigator-link{
-    padding: 1rem .5rem;
+    padding: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
+    text-decoration: none;
+
+    color:#170175;
+    font-weight: 600;
+    font-size: calc(8px + 0.25rem);
+}
+
+.navigator-link:visited{
+    color: #0B0136;    
 }
 
 .navigator-link:hover{
@@ -23,6 +37,24 @@
     cursor: pointer;
 }
 
-.navigator-link .navigator-link-active{
-    background-color: #170175   ;
+.navigator-link-active{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    background-color: #170175;
+
+    font-weight: 600;
+    font-size: calc(8px + 0.25rem);
+}
+
+.navigator-link-active text{
+    color:white;
+}
+
+.navigator-link-active:hover{
+    background-color: #170175;
+    cursor: pointer;
 }

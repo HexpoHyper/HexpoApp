@@ -5,6 +5,7 @@ const colors = {
     OffWhite: "EBF2F9",
     PureWhite: "FFFFFF",
     LightGray: "C9C9C9",
+    CobbleGray: "CDCDCD",
     DarkGray: "808080"
 }
 

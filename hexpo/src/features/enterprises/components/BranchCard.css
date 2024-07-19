@@ -1,0 +1,10 @@
+.branch-card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    padding: 1vw 2vh;
+    background-color: white;
+    border-radius: 8px;
+    margin: 8px;
+}

@@ -1,39 +1,41 @@
-import React from 'react';
-
-// Style
-import './navigator.css';
-
-// Libs
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider} from 'react-router-dom';
-import { ReactSVG } from 'react-svg'
-
-// Components
-import Dashboard from '../../../dashboard/dashboard';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, NavLink, useLocation as location } from 'react-router-dom';
+import {ReactSVG} from 'react-svg';
 import links from '../../utils/navigation/links.json';
-import Box from "../../assets/icons/box-icon.svg";
+import { navigatorIconsMap } from '../../assets/icons/index.js';
+import './navigator.css';
 
 const Navigator = () => {
 
-    const getNavLinkClassName = ({ isActive }) => {
-        return isActive ? 'navigator-link navigator-link-active' : 'navigator-link';
-     };
+
+
+    const [activeLink, setActiveLink] = useState('');
+
+    useEffect(() => {
+        setActiveLink(location.pathname);
+    }, [location]);
 
     return (
         <div className="navigator-container">
             <div className="flex flex-column">
-                <ReactSVG src={Box}/>
-                { links.routes.map((link, index) => {
+                {links.routes.map((link, index) => {
                     return (
-                        <div key={index} className="navigator-link">
-                            <ReactSVG alt="Patata" src={link.media.icon}/>
-                            {link.name}
+                        <NavLink 
+                            key={link.name} 
+                            to={link.path} 
+                            className={({ isActive }) => isActive ? 'navigator-link-active' : 'navigator-link'}
+                        >
+                        <div key={index} className='flex flex-row' >
+                            <ReactSVG className="navigator-icon" src={navigatorIconsMap[link.media.icon]} stroke={activeLink === link.path ? '#FFFFFF' : 'none'}/> 
+                            <text>{link.name}</text>
                         </div>
-                    )})
-                }
+                        <ReactSVG className='navigator-icon' src={navigatorIconsMap['arrow']} />
+                        </NavLink>
+                    );
+                })}
             </div>
         </div>
-    )
-    
-}
+    );
+};
 
 export default Navigator;
