@@ -16,6 +16,11 @@
 .font-light{
   color: #FFFFFF;
 }
+
+.font-indigo{
+  color: #3F00FF;
+}
+
 .font-disabled{
   color: #808080;
 }
@@ -80,6 +85,10 @@ body{
   justify-content: space-around;
 }
 
+.none{
+  display: none;
+}
+
 /*Gaps*/
 .gap-1{
   margin: 16px;
@@ -136,6 +145,9 @@ body{
 /* Margins */
 .margin-0{
   margin: 0;
+}
+.margin-1{
+  margin: 4px;
 }
 
 /* Alignments */

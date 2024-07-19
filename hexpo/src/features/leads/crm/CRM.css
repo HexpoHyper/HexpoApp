@@ -1,0 +1,82 @@
+.crm-header-grid{
+    display: grid;
+    grid-template-columns: 3fr 1.5fr;
+    gap: 8px;
+    height: 100%;
+    margin-bottom: 16px;
+}
+
+.crm-header-left{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    align-content: center;
+    align-items: left;
+
+    border-top-left-radius: 8px;
+}
+
+.crm-header-right{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: right;
+    align-items: right;
+    height: 100%;
+
+    border-top-right-radius: 8px;
+}
+.crm-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) 1.5fr;
+    height: 100%;
+    
+    gap: 8px;
+}
+
+.crm-section{
+    padding: 32px 24px;
+    background-color: white;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.crm-section-label{
+    font-size: .85rem;
+    font-weight: 700;
+    color: #3F00FF;
+}
+.crm-section-value{
+    font-size: .75rem;
+    font-weight: 500;
+    color: #808080;
+}
+
+.counter-button{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.counter-button img{
+    max-width: 16px;
+    max-height: 16px;
+}
+
+.contact-attempts-counter{
+    width: 100%;
+    text-align: center;
+}
