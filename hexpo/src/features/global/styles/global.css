@@ -5,11 +5,12 @@
   transition: all 0.3s;
   font-family: 'Montserrat', sans-serif;
   color: #0B0136;
+
 }
 
 .app{
   height: 100vh;
-  width: 100vw;
+  overflow: hidden;
 }
 
 /*Font Color*/
@@ -55,7 +56,6 @@
 body{
   background-color: #EBF2F9;
   margin: 0;
-  overflow: hidden;
 }
 
 /* Flex */
@@ -148,6 +148,9 @@ body{
 }
 .margin-1{
   margin: 4px;
+}
+.margin-top-3{
+  margin-top: 16px;
 }
 
 /* Alignments */
