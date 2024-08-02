@@ -14,6 +14,7 @@ const AppRouter = (token) => {
         createRoutesFromElements(
             <>
                 {/* Public Route */}
+                <Route path='/' element={token ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
                 <Route path='/login' element={<Login />} />
 
                 {/* Protected Routes */}
