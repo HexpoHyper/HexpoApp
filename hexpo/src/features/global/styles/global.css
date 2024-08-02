@@ -11,6 +11,8 @@
 .app{
   height: 100vh;
   overflow: hidden;
+
+  font-size: clamp(10px, .8em, 16px);
 }
 
 /*Font Color*/
@@ -25,7 +27,6 @@
 .font-disabled{
   color: #808080;
 }
-
 
 /* Font Weight */
 .font-bold{
@@ -42,22 +43,30 @@
 
 /* Font Size */
 .font-small{
-  font-size: .5rem;
+  font-size: 1em
 }
 
 .font-medium{
-  font-size: 1rem;
+  font-size: 1.5em
 }
 
 .font-large{
-  font-size: 1.5rem;
+  font-size: 2.5em
+}
+
+.font-gigantic{
+  font-size: 3em
+}
+
+/* Font styles? */
+.font-italic{
+  font-style: italic;
 }
 
 body{
   background-color: #EBF2F9;
   margin: 0;
 }
-
 /* Flex */
 .flex{
   display: flex;
@@ -91,15 +100,18 @@ body{
 
 /*Gaps*/
 .gap-1{
-  margin: 16px;
+  gap: 16px;
 }
-
 
 /*Images*/
 
 .icon{
   max-width: 32px;
   max-height: 32px;
+}
+
+.trademark{
+  width: 16em;
 }
 
 .logo{
@@ -151,6 +163,14 @@ body{
 }
 .margin-top-3{
   margin-top: 16px;
+}
+
+.margin-right-1{
+  margin-right: 4px;
+}
+
+.margin-bottom-1{
+  margin-bottom: 1em;
 }
 
 /* Alignments */

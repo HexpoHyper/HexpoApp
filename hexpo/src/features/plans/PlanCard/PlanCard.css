@@ -1,0 +1,42 @@
+.plan-container{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 4px;
+    padding: 2.5em;
+    
+}
+
+.plan-container:hover{
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.2);
+    transform: translateY(-4px);
+    transition: transform 0.2s;
+}
+
+.plan-container .title{
+    font-size: 3em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.plan-container .price{
+    font-size: 4em;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.plan-container .button{
+    background-color: #3F00FF;
+    color: white;
+    padding: 1em 4em;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    width: 95%;
+}
+
+.plan-container .button:hover{
+    background-color: #170175;
+    padding: 1.2em 4.5em;
+}

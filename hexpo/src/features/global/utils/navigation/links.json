@@ -1,14 +1,6 @@
 {
     "routes": [
         {
-            "name": "Dashboard",
-            "path": "/",
-            "media": {
-                "icon": "control-panel",
-                "icon-active": ""
-            }
-        },
-        {
             "name": "Empresas",
             "path": "/empresas",
             "media": {
@@ -29,6 +21,14 @@
             "path": "/prospectos",
             "media": {
                 "icon": "bars",
+                "icon-active": ""
+            }
+        },
+        {
+            "name": "Planes",
+            "path": "/planes",
+            "media": {
+                "icon": "credit-card",
                 "icon-active": ""
             }
         }

@@ -3,7 +3,7 @@ import React from "react";
 function Dashboard(){
     return(
         <div>
-            <h1>Dashboard</h1>
+            <text className="font-large font-semibold">Dashboard</text>
         </div>
     )
 }
