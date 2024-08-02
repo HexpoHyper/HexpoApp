@@ -33,9 +33,11 @@ const testEnterprises = [
 
 const testBranch = {
     id: 1,
-    name: "Sucursal 1",
+    name: "Sucursal X",
     phone: "123456789",
-    email: ""
+    address: "Calle X #123",
+    city: "Monterrey",
+    status: "Active"
 }
 
 const testBranches = [

@@ -15,8 +15,8 @@ const EnterpriseCard = ({enterprise}) => {
         <div className="enterprise-card-container">
             <div className='flex flex-row flex-space-between'>
                 <div className='flex flex-row font-small'>
-                    <text className='font-disabled'>id:</text>
-                    <text>{enterprise.id}</text>
+                    <text>id:</text>
+                    <text className='font-disabled'>{enterprise.id}</text>
                 </div>
                 <text className='font-semibold'>{enterprise.status}</text>
             </div>

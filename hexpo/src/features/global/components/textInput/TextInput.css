@@ -1,11 +1,25 @@
 .text-input-container{
     display: flex;
     flex-direction: column;
-    gap: 8px;
     
     width: 100%;
 }
 
 .default-text-input{
-    width: 100%;
+    padding: 8px;
+
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+}
+
+.default-text-area{
+    padding: 8px;
+
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    height: 20vh;
+
+    max-height: 320px;
+    resize: none;
+
 }

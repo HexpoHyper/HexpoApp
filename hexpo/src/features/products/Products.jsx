@@ -28,9 +28,9 @@ const testProducts = [
 const Products = () => {
     return(
         <div>
-            <div>
-                <h2>Productos</h2>
-                <p>Administra tus productos, crea y modifica productos para tu empresa.</p>
+            <div className="flex flex-column">
+                <text className="font-large font-semibold">Productos</text>
+                <text>Administra tus productos, crea y modifica productos para tu empresa.</text>
             </div>
             <div>
                 <div className="products-grid-container">

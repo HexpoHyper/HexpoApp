@@ -1,0 +1,36 @@
+[
+    {
+        "id": 2,
+        "name": "Plus",
+        "tag": "Ofertas exclusivas para PyMES",
+        "message": "Haz crecer tu negocio",
+        "price": "5,999",
+        "secondaryFeatures": [
+            "Listado en empresas de HEXPO",
+            "CRM: Gestión de prospectos",
+            "Perfil digital de empresa"
+        ],
+        "primaryFeatures": [
+            "16 productos en catálogo digital",
+            "5 categorías o ubicaciones",
+            "20 prospectos máximos al mes"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Advance",
+        "tag": "Más popular",
+        "message": "Escale sus ventas B2B",
+        "price": "9,999",
+        "secondaryFeatures": [
+            "Listado en empresas de HEXPO",
+            "CRM: Gestión de prospectos",
+            "Perfil digital de empresa"
+        ],
+        "primaryFeatures": [
+            "Sin límite de productos",
+            "Sin límite de categorías o ubicaciones",
+            "Sin límite de prospectos"
+        ]
+    }
+]
