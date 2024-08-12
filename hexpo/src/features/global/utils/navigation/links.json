@@ -5,7 +5,7 @@
             "path": "/empresas",
             "media": {
                 "icon": "pencil",
-                "icon-active": ""
+                "icon-active": "pencil-light"
             }
         },
         {
@@ -13,7 +13,7 @@
             "path": "/productos",
             "media": {
                 "icon": "box",
-                "icon-active": ""
+                "icon-active": "box-light"
             }
         },
         {
@@ -21,7 +21,7 @@
             "path": "/prospectos",
             "media": {
                 "icon": "bars",
-                "icon-active": ""
+                "icon-active": "bars-light"
             }
         },
         {
@@ -29,7 +29,7 @@
             "path": "/planes",
             "media": {
                 "icon": "credit-card",
-                "icon-active": ""
+                "icon-active": "credit-card-light"
             }
         }
     ]

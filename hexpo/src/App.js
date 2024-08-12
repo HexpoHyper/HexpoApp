@@ -5,6 +5,8 @@ import AppRouter from './features/global/utils/navigation/appNavigation.jsx';
 import AuthProvider, { useAuth } from './hooks/AuthProvider.jsx';
 
 function App() {
+
+
   return (
     <div className='app'>
       <AuthProvider>
@@ -15,10 +17,21 @@ function App() {
 }
 
 function InnerApp() {
-  const { token } = useAuth();
+  const { data, error, token } = useAuth();
+
+  const useLogger = true;
 
   return (
+    <>    
+    {
+      useLogger &&
+      <div className='logger'>
+        <text>{JSON.stringify(data  )}</text>
+        <text>{error}</text>
+      </div>
+  }
     <RouterProvider router={AppRouter(token)} />
+    </>
   );
 }
 

@@ -1,10 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
 
+/* Main Display */
+.app-container{
+  background-color: #EBF2F9;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
+  height:100%;
+  width: 100%;
+
+  max-height: 80vh;
+  max-width: 80vw;
+}
+
 *{
   transition: all 0.3s;
   font-family: 'Montserrat', sans-serif;
   color: #0B0136;
+}
+
+.logger{
+  background-color: rgba(205, 205, 205, .65);
+  color: #FFFFFF;
+  padding: 8px;
+  border-radius: 8px;
+  position:absolute;
+  bottom: 0;
+  z-index: 9999;
 }
 
 .app{
@@ -12,6 +35,16 @@
   overflow: hidden;
 
   font-size: clamp(10px, .8em, 16px);
+}
+
+body{
+  background-color: #EBF2F9;
+  margin: 0;
+  padding: 0;
+}
+
+.scrollable{
+  overflow-y: auto;
 }
 
 /*Font Color*/
@@ -25,6 +58,10 @@
 
 .font-disabled{
   color: #808080;
+}
+
+.font-error{
+  color: #FF0000;
 }
 
 /* Font Weight */
@@ -57,15 +94,16 @@
   font-size: 3em
 }
 
+.font-decoration-none{
+  text-decoration: none;
+}
+
 /* Font styles? */
 .font-italic{
   font-style: italic;
 }
 
-body{
-  background-color: #EBF2F9;
-  margin: 0;
-}
+
 /* Flex */
 .flex{
   display: flex;
@@ -93,7 +131,7 @@ body{
   justify-content: space-around;
 }
 
-.none{
+.hidden{
   display: none;
 }
 
@@ -124,6 +162,11 @@ body{
   margin: 8px;
 }
 
+.big{
+  max-width: 256px;
+  max-height: 128px;
+}
+
 .logo-mini{
   width: 100%;
   height: 100%;
@@ -135,15 +178,7 @@ body{
   margin: 8px;
 }
 
-/* Main Display */
-.app-container{
-  background-color: #EBF2F9;
-  padding: 2%;
-  width: 90%;
-  height: 90%;
-  align-items: center;
-  justify-content: center;
-}
+
 
 
 /* Labels */

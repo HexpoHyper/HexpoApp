@@ -19,12 +19,14 @@ const Plans = () => {
         </div>
         <text>{}</text>
         
-        <div className="plan-grid">
-          {
-            plans.map((plan) => (
-              <PlanCard plan={plan} />
-            ))
-          }
+        <div className="plan-grid-container">
+          <div className="plan-grid">
+            {
+              plans.map((plan) => (
+                <PlanCard plan={plan} />
+              ))
+            }
+          </div>
         </div>
         
     </div>

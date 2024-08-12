@@ -8,15 +8,16 @@ import CRM from '../../../leads/crm/CRM.jsx';
 import Planes from '../../../plans/Plans.jsx';
 import Login from '../../../login/Login.jsx';
 import RootLayout from '../../../../layouts/RootLayout.js';
+import SignUp from '../../../signUp/SignUp.jsx';
 
 const AppRouter = (token) => {
     return createBrowserRouter(
         createRoutesFromElements(
             <>
-                {/* Public Route */}
+                <Route path='/' element={token ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
                 <Route path='/login' element={<Login />} />
+                <Route path='/registro' element={<SignUp />} />
 
-                {/* Protected Routes */}
                 <Route element={token ? <RootLayout /> : <Navigate to="/login" replace />}>
                     <Route path='/dashboard' element={<Dashboard />} />
                     <Route path='/empresas' element={<Enterprises />} />

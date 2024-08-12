@@ -11,6 +11,10 @@
     height: 100%;   
 }
 
+.plan-grid-container{
+    margin-bottom: 10em;
+}
+
 .plan-grid::-webkit-scrollbar-button {
     display: none;
 }

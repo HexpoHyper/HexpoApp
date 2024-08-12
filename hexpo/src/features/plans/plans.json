@@ -14,7 +14,8 @@
             "16 productos en catálogo digital",
             "5 categorías o ubicaciones",
             "20 prospectos máximos al mes"
-        ]
+        ],
+        "paymentLink": "https://buy.stripe.com/00geYj7HC5EpaLm7sv"
     },
     {
         "id": 3,
@@ -31,6 +32,7 @@
             "Sin límite de productos",
             "Sin límite de categorías o ubicaciones",
             "Sin límite de prospectos"
-        ]
+        ],
+        "paymentLink": "https://buy.stripe.com/bIY17te601o99Hi4gk"
     }
 ]

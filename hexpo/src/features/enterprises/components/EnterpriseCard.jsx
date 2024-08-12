@@ -21,7 +21,7 @@ const EnterpriseCard = ({enterprise}) => {
                 <text className='font-semibold'>{enterprise.status}</text>
             </div>
             <div className='flex flex-row'>
-                <img src={enterprise.logo} alt={enterprise.name} className="enterprise-card-logo"/>
+                <img src={enterprise.logo_url ? enterprise.logo_url : "https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/664540526d239a8222c6db51_placeholder.png"} alt={enterprise.name} className="enterprise-card-logo"/>
                 <text className='font-bold'>{enterprise.name}</text>
             </div>
             <div className='flex flex-row background-label'>

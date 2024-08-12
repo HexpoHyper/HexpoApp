@@ -7,13 +7,7 @@ import './navigator.css';
 
 const Navigator = () => {
 
-
-
     const [activeLink, setActiveLink] = useState('');
-
-    useEffect(() => {
-        setActiveLink(location.pathname);
-    }, [location]);
 
     return (
         <div className="navigator-container">
@@ -24,12 +18,13 @@ const Navigator = () => {
                             key={link.name} 
                             to={link.path} 
                             className={({ isActive }) => isActive ? 'navigator-link-active' : 'navigator-link'}
+                            onClick={() => setActiveLink(link.path)}
                         >
                         <div key={index} className='flex flex-row' >
-                            <ReactSVG className="navigator-icon" src={navigatorIconsMap[link.media.icon]} stroke={activeLink === link.path ? '#FFFFFF' : 'none'}/> 
+                            <ReactSVG className="navigator-icon" src={navigatorIconsMap[ activeLink === link.path ? link.media['icon-active'] : link.media['icon']]}/> 
                             <text>{link.name}</text>
                         </div>
-                        <ReactSVG className='navigator-icon' src={navigatorIconsMap['arrow']} />
+                        <ReactSVG className='navigator-icon' src={navigatorIconsMap[ activeLink === link.path ? 'arrow-light' : 'arrow']} />
                         </NavLink>
                     );
                 })}

@@ -25,7 +25,7 @@ const PlanCard = ({plan}) => {
                     </div>
                 </div>
 
-                <a href="">
+                <a href={plan.paymentLink}>
                     <Button text={"Contratar"} className={"button"}/>
                 </a>
 
