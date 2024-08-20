@@ -20,7 +20,7 @@ export async function postImage(data) {
 
 
 export async function postEnterprise (data) {
-    return fetch(api.local.base + "/user/enterprise", {
+    return fetch(api.prod.base + "/user/enterprise", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -37,7 +37,7 @@ export async function postEnterprise (data) {
 
 export async function putEnterprise(data) {
     try {
-        const response = await fetch(`${api.local.base}/user/enterprise`, {
+        const response = await fetch(`${api.prod.base}/user/enterprise`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

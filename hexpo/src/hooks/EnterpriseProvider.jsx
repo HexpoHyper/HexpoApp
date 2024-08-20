@@ -27,7 +27,7 @@ const EnterpriseProvider = ({ children }) => {
                     throw new Error('User ID not found');
                 }
 
-                const response = await fetch(`http://localhost:8080/api/v1/user/enterprise?uid=${user.id}`, {
+                const response = await fetch(`https://hexpo-back.vercel.app/api/v1/user/enterprise?uid=${user.id}`, {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 });
