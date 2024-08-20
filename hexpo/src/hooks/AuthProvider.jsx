@@ -1,4 +1,5 @@
 import { useContext, createContext, useState, useEffect } from 'react';
+import { api } from '../features/global/utils/api/Routing'; 
 
 const AuthContext = createContext();
 
@@ -17,7 +18,7 @@ const AuthProvider = ({ children }) => {
 
     const loginAction = async (data) => {
         try {
-            const response = await fetch('http://localhost:8080/api/v1/auth/login', {
+            const response = await fetch(api.prod.base + '/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -64,7 +65,7 @@ const AuthProvider = ({ children }) => {
 
     const SignUpAction = async (data) => {
         try {
-            const response = await fetch('http://localhost:8080/api/v1/auth/signUp', {
+            const response = await fetch(api.prod.base + '/auth/signUp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)

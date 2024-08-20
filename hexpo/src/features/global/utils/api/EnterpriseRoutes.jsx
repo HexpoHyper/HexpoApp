@@ -3,7 +3,7 @@ import api from "./Routing";
 import { setEnterpriseList, enterpriseList } from "../../../../hooks/EnterpriseProvider";
 
 export async function postImage(data) {
-    return fetch(api.local.base + "/user/enterprise/image", {
+    return fetch(api.prod.base + "/user/enterprise/image", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
