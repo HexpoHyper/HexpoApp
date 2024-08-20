@@ -1,5 +1,5 @@
 import { useContext, createContext, useState, useEffect } from 'react';
-import { api } from '../features/global/utils/api/Routing'; 
+import api from '../features/global/utils/api/Routing'; 
 
 const AuthContext = createContext();
 
