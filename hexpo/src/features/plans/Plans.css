@@ -33,3 +33,27 @@
     background-color: #EBF2F9;
     border-radius: 4px;
 }
+
+.current-plan-container{
+    border: 1px solid gray;
+    max-width: 35%;
+
+    border-radius: 8px;
+
+    padding: 1em;
+}
+
+.plan-status{
+    color: white;
+
+    border-radius: 4em;
+    padding: 0.5em;
+}
+
+.plan-status .active{
+    background-color: #3F00FF;
+}
+
+.plan-status .inactive{
+    background-color: #EBF2F9;
+}

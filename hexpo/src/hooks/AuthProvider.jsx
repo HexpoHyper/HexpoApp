@@ -1,26 +1,12 @@
 import { useContext, createContext, useState, useEffect } from 'react';
-import useEnterpriseData from './useEnterpriseData';
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const [userId, setUserId] = useState(null);
-    const [token, setToken] = useState(localStorage.getItem('token'));
-    const [refresh, setRefresh] = useState(false);
-    const [enterpriseData, setEnterpriseData] = useState(null);
+    const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
+    const [token, setToken] = useState(() => localStorage.getItem('token'));
+    const [profile, setProfile] = useState(() => JSON.parse(localStorage.getItem('profile')));
 
-    const { data, loading, error } = useEnterpriseData(userId, refresh);
-
-    const handleRefresh = () => {
-        setRefresh(prev => !prev); 
-    };    
-
-    useEffect(() => {
-        if (data) {
-            setEnterpriseData(data);
-        }
-    }, [data]);
 
     useEffect(() => {
         const savedToken = localStorage.getItem('token');
@@ -36,22 +22,45 @@ const AuthProvider = ({ children }) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+    
+                if (!response.ok) {
+                const errorData = await response.json(); 
+                throw new Error(errorData.message || 'Error al iniciar sesión');
+            }
+    
             const responseData = await response.json();
-            
+    
             if (responseData && responseData.data) {
                 setUser(responseData.data.user);
-                setUserId(responseData.data.user.id);
                 setToken(responseData.data.session.access_token);
                 localStorage.setItem('user', JSON.stringify(responseData.data.user));
                 localStorage.setItem('token', responseData.data.session.access_token);
-                handleRefresh(); 
+                localStorage.setItem('profile', JSON.stringify(responseData.data.profile));
                 return true;
+            } else {
+                throw new Error('Hubo un error en el servidor, por favor intenta de nuevo');
             }
         } catch (error) {
-            console.error(error);
+            console.error('Login action error:', error.message);
+            if (error.message === 'Failed to fetch') {
+                throw new Error('Error de conexión, por favor intenta de nuevo');
+            }
+            if (error.message === 'Unauthorized' || error.message === 'Invalid login credentials') {
+                throw new Error('Correo o contraseña incorrectos');
+            }
+            if (error.message === 'Error al iniciar sesión') {
+                throw new Error('Correo o contraseña incorrectos');
+            }
+            if (error.message === 'Hubo un error en el servidor, por favor intenta de nuevo') {
+                throw new Error('Hubo un error en el servidor, por favor intenta de nuevo');
+            }
+            if (error.message === 'Cannot read properties of null (reading \'access_token\')') {
+                throw new Error('');
+            }
             throw error;
         }
     };
+    
 
     const SignUpAction = async (data) => {
         try {
@@ -64,11 +73,10 @@ const AuthProvider = ({ children }) => {
             
             if (responseData && responseData.data) {
                 setUser(responseData.data.user);
-                setUserId(responseData.data.user.id);
                 setToken(responseData.data.session.access_token);
+                setProfile(responseData.data.profile);
                 localStorage.setItem('user', JSON.stringify(responseData.data.user));
                 localStorage.setItem('token', responseData.data.session.access_token);
-                handleRefresh();
                 return true;
             }
         } catch (error) {
@@ -79,21 +87,12 @@ const AuthProvider = ({ children }) => {
 
     const logoutAction = () => {
         setUser(null);
-        setUserId(null);
         setToken(null);
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setRefresh(false);
-    };
-
-    const updateEnterpriseData = (newData) => {
-        setEnterpriseData(prevData => {
-            return { ...prevData, ...newData };
-        });
+        localStorage.clear();
     };
 
     return (
-        <AuthContext.Provider value={{ SignUpAction, loginAction, logoutAction, updateEnterpriseData, user, token, data, loading, error, handleRefresh }}>
+        <AuthContext.Provider value={{ SignUpAction, loginAction, logoutAction, user, profile, token }}>
             {children}
         </AuthContext.Provider>
     );

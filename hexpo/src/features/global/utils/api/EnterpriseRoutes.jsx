@@ -1,5 +1,7 @@
 import api from "./Routing";
 
+import { setEnterpriseList, enterpriseList } from "../../../../hooks/EnterpriseProvider";
+
 export async function postImage(data) {
     return fetch(api.local.base + "/user/enterprise/image", {
         method: "POST",
@@ -31,4 +33,26 @@ export async function postEnterprise (data) {
         }
         throw new Error("Error al crear la empresa");
     })  
+}
+
+export async function putEnterprise(data) {
+    try {
+        const response = await fetch(`${api.local.base}/user/enterprise`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error("Error al actualizar la empresa");
+        }
+
+        const updatedEnterprise = await response.json();
+        return updatedEnterprise;
+    } catch (error) {
+        console.error(error);
+        throw new Error("Error al actualizar la empresa");
+    }
 }

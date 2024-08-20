@@ -5,6 +5,7 @@ import {Outlet} from 'react-router-dom';
 import Header from '../features/global/components/header/header.jsx';
 import Navigator from '../features/global/components/navigator/navigator.jsx';
 import { useAuth } from '../hooks/AuthProvider';
+import Notifications from '../features/global/components/inbox/Notifications.jsx';
 
 const RootLayout =() => {
     const uid = localStorage.getItem('user').id;
@@ -13,14 +14,15 @@ const RootLayout =() => {
     return(
         <>
             <Header/>
-            <div className='flex flex-row' style={{height:"100%"}}>
+            <div className='flex flex-row'>
                 <Navigator/>
-            <div className='app-container'>
-                {loading && <p>Loading...</p>}
-                {error && <p>{error}</p>}
-                {!loading && !error && <Outlet/>}
+                <div className='app-container'>
+                    {loading && <p>Loading...</p>}
+                    {error && <p>{error}</p>}
+                    {!loading && !error && <Outlet/>}
+                </div>
             </div>
-            </div>
+            {/* <Notifications/> */}
         </>
     );
 }

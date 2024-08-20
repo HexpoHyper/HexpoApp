@@ -10,13 +10,13 @@
 }
 
 .enterprise-logo-preview-container{
-    padding: 32px;
+    padding: 16px;
 
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 
     margin-right: 16px;
 
@@ -69,4 +69,22 @@
     gap: 8px;
 
     margin-top: 16px;
+}
+
+.enterprise-color-preview{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 2px solid #170175;
+}
+
+.blocked{
+    background-color: #C9C9C9C9;
+    color: white;
+}
+
+.blocked:hover{
+    background-color: #C9C9C9C9;
+    color: white;
+    cursor:not-allowed;
 }

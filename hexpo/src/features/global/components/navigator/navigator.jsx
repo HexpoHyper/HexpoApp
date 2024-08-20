@@ -7,7 +7,7 @@ import './navigator.css';
 
 const Navigator = () => {
 
-    const [activeLink, setActiveLink] = useState('');
+    const [activeLink, setActiveLink] = useState('/empresas');
 
     return (
         <div className="navigator-container">

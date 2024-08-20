@@ -12,12 +12,14 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
     const navigate = useNavigate();
-    const { SignUpAction } = useAuth();
+    const { SignUpAction, user } = useAuth();
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [passwordVerification, setPasswordVerification] = useState('');
+
+    const [requested, setRequested] = useState(false);
 
     const emailOnChange = (e) => {
         setEmail(e.target.value);
@@ -42,7 +44,7 @@ const SignUp = () => {
             setError('Por favor, ingresa un correo válido');
             return false;
         }
-        if (password !== passwordVerification) {
+        if (password != passwordVerification) {
             setError('Las contraseñas no coinciden');
             return false;
         }
@@ -57,21 +59,37 @@ const SignUp = () => {
         e.preventDefault();
         const requestBody = {
             email: email,
-            password: password
-            // name: name
+            password: password,
+            name: name
         }
+        if(!validation()) return;
         
         try {
-            const isLoggedIn = await SignUpAction(requestBody);
-            if (isLoggedIn) {
-                navigate('/registrar-nueva-empresa'); 
-            }
+            await SignUpAction(requestBody).then(() => {
+                setRequested(true);
+            });
         } catch (error) {
-            setError(JSON.stringify(error.message));
+            if (error.message === "Cannot read properties of null (reading 'access_token')") {
+                return
+            }
+            setError(error.message);
         }
-        
- 
     }
+
+    if(requested) {
+        return(
+        <div className='SignUp-container'>
+            <div className='SignUp-form-container'>
+                <img className='trademark margin-bottom-1' src="https://cdn.prod.website-files.com/65384f64fc0a1608e6828a1c/6556838341b0589afb8f4764_LogoExpo.svg"/>
+                <text className='font-large font-semibold font-dark'>Confirma tu cuenta</text>
+                <text className='font-indigo font-medium'>Acabamos de enviarte un mensaje de confirmación a tu correo para validar tu cuenta.</text>
+            </div>
+            <div className='SignUp-hero-container'>
+                <img src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/655646d1da7855f9f8df933f_Capa_1.svg"/>
+            </div>
+        </div>
+        
+    )}
 
     return (
         <div className="SignUp-container">
@@ -107,7 +125,7 @@ const SignUp = () => {
                 </form>
             </div>
             <div className='SignUp-hero-container'>
-                <img src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/655683fa381ff7146fd2b6f5_Cohete.svg"/>
+                <img src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/655646d1da7855f9f8df933f_Capa_1.svg"/>
             </div>
         </div>
     );

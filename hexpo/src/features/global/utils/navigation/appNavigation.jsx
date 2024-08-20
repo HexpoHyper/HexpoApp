@@ -1,6 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 import Dashboard from '../../../dashboard/dashboard.jsx';
 import Enterprises from '../../../enterprises/enterprises.jsx';
+import EnterpriseProfile from '../../../enterprises/EnterpriseProfile/EnterpriseProfile.jsx';
 import Products from '../../../products/Products.jsx';
 import NewEnterprise from '../../../enterprises/NewEnteprise/NewEnterprise.jsx';
 import Leads from '../../../leads/Leads.jsx';
@@ -14,7 +15,7 @@ const AppRouter = (token) => {
     return createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path='/' element={token ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
+                <Route path='*' element={token ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/registro' element={<SignUp />} />
 
@@ -22,9 +23,9 @@ const AppRouter = (token) => {
                     <Route path='/dashboard' element={<Dashboard />} />
                     <Route path='/empresas' element={<Enterprises />} />
                     <Route path='/productos' element={<Products />} />
-                    <Route path='/registrar-nueva-empresa' element={<NewEnterprise />} />
+                    <Route path='/empresas/registrar' element={<NewEnterprise />} />
                     <Route path='/productos/:id' element={<Products />} />
-                    <Route path='/empresas/:id' element={<Enterprises />} />
+                    <Route path='/empresas/:id' element={<EnterpriseProfile />} />
                     <Route path='/prospectos/:id' element={<CRM />} />
                     <Route path='/prospectos' element={<Leads />} />
                     <Route path='/planes' element={<Planes />} />

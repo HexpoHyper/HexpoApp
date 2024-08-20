@@ -38,6 +38,8 @@ const Login = () => {
     }    
 
     const handleSubmit = async (e) => {
+        if (!validation()) return;
+
         e.preventDefault();
         const credentials = {
             email: email,
@@ -50,7 +52,7 @@ const Login = () => {
                 navigate('/empresas'); 
             }
         } catch (error) {
-            setError(JSON.stringify(error.message));
+            setError(JSON.stringify(error.message).replace(/"/g, ''));
         }
         
  

@@ -29,3 +29,17 @@
     background-color: #C9C9C9;
     color: #170175;
 }
+
+.default-button:disabled{
+    background-color: #C9C9C9;
+    color: #170175;
+    cursor: not-allowed;
+}
+
+.default-button .icon{
+    margin: 0;
+    padding: 0;
+
+    max-width: 16px;
+    max-height: 16px;
+}

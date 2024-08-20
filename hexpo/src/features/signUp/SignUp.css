@@ -3,7 +3,7 @@
     background-image: url("https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/65565005af7bb36d7c40783d_Sign%20Up.svg");
     display:flex;
     flex-direction: row;
-    height: 100%;
+    height: 100vh;
 }
 
 .SignUp-form-container{

@@ -1,5 +1,16 @@
 [
     {
+        "id": 1,
+        "name": "Basic",
+        "tag": "Para empezar",
+        "message": "Inicia tu presencia digital",
+        "price": "0",
+        "secondaryFeatures": [
+        ],
+        "primaryFeatures": [
+        ]
+    },
+    {
         "id": 2,
         "name": "Plus",
         "tag": "Ofertas exclusivas para PyMES",

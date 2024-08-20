@@ -1,25 +1,41 @@
 import React from "react";
-
-// Libs
 import { NavLink } from "react-router-dom";
-
-// Styles
 import "./LeadCard.css";
+import { useAuth } from "../../../hooks/AuthProvider";
 
-const LeadCard = ({ lead }) => {
+const LeadCard = ({ lead, index }) => {
+    const { user } = useAuth();
+
+    // Check if lead is defined
+    if (!lead) {
+        return null;
+    }
+
+    // Ensure interactions is an array
+    const interactions = Array.isArray(lead.interactions) ? lead.interactions : [];
+
+    // Determine if the card should be hidden
+    const shouldHideCard = interactions.some(interact =>
+        interact.manager === user.id && (interact.status === "won" || interact.status === "lost")
+    );
+
+    if (shouldHideCard) {
+        return null;
+    }
+
     return (
-        <NavLink className="lead-card-container" to={"/prospectos/" + lead.id}>
+        <NavLink className="lead-card-container gap-1" to={"/prospectos/" + index}>
             <div className="flex flex-column">
                 <text className="font-bold">{lead.name}</text>
-                <text className="font-semibold">{lead.company}</text>
-                <text className="font-disabled">id: {lead.id}</text>
+                <text className="font-semibold">{lead.enterprise}</text>
+                <text className="font-disabled font-diminute">id: {lead.id}</text>
             </div>
-            <text>{lead.email}</text>
-            <text>{lead.phone}</text>
+            <text>{lead.requirement_email}</text>
+            <text>{lead.phonenumber}</text>
             <text>{lead.message}</text>
-            <div>
+            {/* <div>
                 <text className="font-semibold">{lead.score}</text>
-            </div>
+            </div> */}
         </NavLink>
     );
 };

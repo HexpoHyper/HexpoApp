@@ -1,0 +1,21 @@
+.enterprise-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); 
+    gap: 8px;
+    justify-content: center;
+    
+    max-height: 21em;
+
+    overflow-y: auto;
+    margin-top: 8px;
+}
+
+.enterprise-card-grid::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.enterprise-card-grid::-webkit-scrollbar-thumb {
+    background-color: blue;
+    border-radius: 4px;
+}

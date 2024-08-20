@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { HexColorPicker } from "react-colorful";
-import mexicoData from "./mexicoData.json";
+import mexicoData from "../../global/utils/data/mexicoData.json";
 import categoryData from "../../global/utils/data/categories.json";
 import './NewEnterprise.css';
 import TextInput from "../../global/components/textInput/TextInput";
@@ -10,6 +10,8 @@ import { postImage, postEnterprise } from "../../global/utils/api/EnterpriseRout
 import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../../hooks/AuthProvider";
+import Modal from "../../global/components/modal/Modal";
+import Button from "../../global/components/button/Button";
 
 
 const NewEnterprise = () => {
@@ -37,6 +39,7 @@ const NewEnterprise = () => {
 
     const [error, setError] = useState({ message: "" });
     const [loading, setLoading] = useState(false); 
+    const [modalTrigger, setModalTrigger] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -114,7 +117,7 @@ const NewEnterprise = () => {
             city: formData.enterpriseCity,
             state: formData.enterpriseState,
             products: [],
-            brand_color: "",
+            brand_color: formData.enterpriseColor,
             branches: [],
             contact: {
                 address: formData.enterpriseAddress,
@@ -155,7 +158,7 @@ const NewEnterprise = () => {
                             className="enterprise-logo-input"
                             onChange={handleEnterpriseLogoChange}
                         />
-                        <label htmlFor="enterprise-logo-input" className="default-button">
+                        <label htmlFor="enterprise-logo-input" className={`default-button ${formData.enterpriseName === "" ? "blocked" : ""}`}>
                             Subir Imagen
                         </label>
                     </div>
@@ -230,22 +233,28 @@ const NewEnterprise = () => {
                         onChange={handleInputChange}
                     />
                 </div>
-                {/* <div className="enterprise-form-section hidden">
-                    <text>Identidad</text>
-                    <div className="flex flex-row">
-                        <div className="flex flex-row" style={{ borderLeftColor: formData.enterpriseColor }}>
-                            <text className="font-semibold" style={{ color: formData.enterpriseColor }}>Color de la empresa: </text>
-                            <TextInput
-                                name="enterpriseColor"
-                                type="text"
-                                value={formData.enterpriseColor}
-                                onChange={handleInputChange}
-                            />
+                <div className="flex flex-row">
+                    <Button text="Color de la empresa" onClick={() => setModalTrigger(true)}/>
+                    <div className="enterprise-color-preview" style={{backgroundColor: formData.enterpriseColor}}/>
+                </div>
+                <Modal show={modalTrigger} onClose={() => setModalTrigger(false)} onSubmit={() => setModalTrigger(false)}>
+                    <div className="enterprise-form-section hidden">
+                        <text>Identidad</text>
+                        <div className="flex flex-row">
+                            <div className="flex flex-row" style={{ borderLeftColor: formData.enterpriseColor }}>
+                                <text className="font-semibold" style={{ color: formData.enterpriseColor }}>Color de la empresa: </text>
+                                <TextInput
+                                    name="enterpriseColor"
+                                    type="text"
+                                    value={formData.enterpriseColor}
+                                    onChange={handleInputChange}
+                                />
+                            </div>
+                            <HexColorPicker color={formData.enterpriseColor} onChange={(color) => handleDropdownChange("enterpriseColor", color)} />
                         </div>
-                        <HexColorPicker color={formData.enterpriseColor} onChange={(color) => handleDropdownChange("enterpriseColor", color)} />
-                    </div>
-                </div> */}
-                <input type="submit" value="Crear Empresa" className="default-button margin-top-3" disabled={loading} />
+                    </div>                
+                </Modal>
+                <input type="submit" value="Crear Empresa" className="default-button" disabled={loading} />
                 <text>{error.message}</text>
             </form>
         </div>

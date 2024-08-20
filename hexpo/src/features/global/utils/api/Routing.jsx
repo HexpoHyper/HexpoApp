@@ -3,7 +3,7 @@ const api = {
         base: 'http://localhost:8080/api/v1',
     },
     prod: {
-        base: '',
+        base: 'https://hexpo-back.vercel.app/api/v1',
     },
 
 }

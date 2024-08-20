@@ -1,0 +1,59 @@
+.enterprise-profile-grid{
+    display: grid;
+    grid-template-columns: 2.5fr 2fr;
+    gap: 1em;
+
+    grid-template-areas: 
+    "form preview";
+
+
+}
+
+.section{
+    padding: 1em;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+
+    
+    overflow: auto;
+}
+
+.section::-webkit-scrollbar-track
+{
+    background-color: #F5F5F5;
+}
+
+.section::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+.section::-webkit-scrollbar-thumb
+{
+    background-color: #170175;
+}
+
+.enterprise-form-container{
+    grid-area: form;
+}
+
+.enterprise-preview-container{
+    grid-area: preview;
+}
+
+.customer-label{
+    border-radius: 8px;
+    border: solid 1px #C9C9C9;
+    padding: 8px;
+}
+
+.profile-card{  
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px #C9C9C9;
+    max-width: 320px;
+    margin: 16px 0 ;
+}

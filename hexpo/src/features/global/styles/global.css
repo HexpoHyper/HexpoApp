@@ -2,16 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
 
 /* Main Display */
+.app{
+  overflow: hidden;
+  font-size: clamp(10px, .8em, 16px);
+}
+
 .app-container{
   background-color: #EBF2F9;
-  padding: 2%;
   align-items: center;
   justify-content: center;
   height:100%;
-  width: 100%;
+  max-height: 94vh;
 
-  max-height: 80vh;
-  max-width: 80vw;
+  width: 100%;
+  max-width: 85vw;
+
+  align-self: flex-start;
+  padding: 2em;
 }
 
 *{
@@ -28,13 +35,6 @@
   position:absolute;
   bottom: 0;
   z-index: 9999;
-}
-
-.app{
-  height: 100vh;
-  overflow: hidden;
-
-  font-size: clamp(10px, .8em, 16px);
 }
 
 body{
@@ -78,16 +78,21 @@ body{
 }
 
 /* Font Size */
+
+.font-diminute{
+  font-size: .6em
+}
+
 .font-small{
-  font-size: 1em
+  font-size: .8em
 }
 
 .font-medium{
-  font-size: 1.5em
+  font-size: 1em
 }
 
 .font-large{
-  font-size: 2.5em
+  font-size: 2em
 }
 
 .font-gigantic{
@@ -102,6 +107,14 @@ body{
 .font-italic{
   font-style: italic;
 }
+
+/* Font Wrapping */
+
+.font-wrap{
+  text-wrap: wrap;
+}
+
+
 
 
 /* Flex */
@@ -137,7 +150,7 @@ body{
 
 /*Gaps*/
 .gap-1{
-  gap: 16px;
+  gap: 8px;
 }
 
 /*Images*/
@@ -145,6 +158,11 @@ body{
 .icon{
   max-width: 32px;
   max-height: 32px;
+}
+
+.icon-mini{
+  max-width: 16px;
+  max-height: 16px;
 }
 
 .trademark{

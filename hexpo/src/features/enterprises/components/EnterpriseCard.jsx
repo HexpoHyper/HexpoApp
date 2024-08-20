@@ -9,7 +9,7 @@ import Button from '../../global/components/button/Button';
 // Styles
 import './EnterpriseCard.css';
 
-const EnterpriseCard = ({enterprise}) => {
+const EnterpriseCard = ({enterprise, index}) => {
 
     return enterprise ? (
         <div className="enterprise-card-container">
@@ -32,12 +32,12 @@ const EnterpriseCard = ({enterprise}) => {
                 <text className='font-disabled'>Ciudad: </text>
                 <text className='font-semibold'>{enterprise.city}</text>
             </div>
-            <NavLink to={`/enterprise/${enterprise.id}`}>
+            <NavLink to={`/empresas/${index}`}>
                 <Button text="Editar Perfil" />
             </NavLink>
         </div>
     ) : (
-        <NavLink to="/registrar-nueva-empresa" className="enterprise-card-container new-enterprise">
+        <NavLink to="/empresas/registrar" className="enterprise-card-container new-enterprise">
             <text >Registrar nueva empresa</text> 
             <text>Se creará una empresa que comenzará a mostrarse a compradores en Hexpo</text>       
         </NavLink>
