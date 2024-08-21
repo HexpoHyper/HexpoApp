@@ -4,7 +4,7 @@ import React from "react";
 import ProductCard from "./components/ProductCard";
 
 // Hooks
-import { useAuth } from "../../hooks/AuthProvider";
+import { useEnterprise } from "../../hooks/EnterpriseProvider";
 
 // Style
 import './Products.css';
@@ -13,9 +13,9 @@ import Button from "../global/components/button/Button";
 
 const Products = () => {
 
-    const {data, error} = useAuth();
+    const { enterpriseList } = useEnterprise()
 
-    const products = data?.products;
+    const products = enterpriseList.flatMap(enterprise => enterprise.products);
 
     return(
         <div>

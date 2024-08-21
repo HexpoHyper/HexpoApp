@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import TextInput from '../global/components/textInput/TextInput';
 import { useAuth } from '../../hooks/AuthProvider';
 import { useEnterprise } from '../../hooks/EnterpriseProvider';
+import Modal from '../global/components/modal/Modal';
 import './Login.css';
 
 const Login = () => {
@@ -13,6 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const redirectTo = () => {
     if (enterpriseList.length > 0) {
@@ -46,6 +48,8 @@ const Login = () => {
     e.preventDefault();
     if (!validation()) return;
 
+    setLoading(true);
+
     const credentials = { email, password };
     try {
       const isLoggedIn = await loginAction(credentials);
@@ -55,6 +59,8 @@ const Login = () => {
     } catch (error) {
       setError(error.message);
     }
+
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -128,6 +134,9 @@ const Login = () => {
       <div className="login-hero-container">
         <img src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/655683fa381ff7146fd2b6f5_Cohete.svg" alt="Rocket" />
       </div>
+      <Modal show={loading} noButtons={true}>
+        <img className='logo true-center' src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/66bcd2199f0b0a2aa15047fa_loading-icon.gif"/>
+      </Modal>
     </div>
   );
 };

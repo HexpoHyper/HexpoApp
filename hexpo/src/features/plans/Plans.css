@@ -36,7 +36,7 @@
 
 .current-plan-container{
     border: 1px solid gray;
-    max-width: 35%;
+    max-width: 40%;
 
     border-radius: 8px;
 
@@ -57,4 +57,8 @@
 .inactive{
     background-color: #EBF2F9;
     color: black;
+}
+
+.payment-info{
+    margin-left: 4em;
 }
