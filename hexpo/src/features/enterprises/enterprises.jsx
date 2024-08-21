@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import EnterpriseGrid from './components/EnterpriseGrid';
 import BranchGrid from './components/BranchGrid';
 
 import { useEnterprise } from '../../hooks/EnterpriseProvider';
+import { useNavigate } from 'react-router-dom';
 
 import './Enterprises.css';
 
@@ -19,7 +20,7 @@ const Enterprises = () => {
             {enterpriseList && (
                 <div>
                     <EnterpriseGrid enterprises={enterpriseList} />
-                    <BranchGrid branches={enterpriseList.branches} />
+                    {/* <BranchGrid branches={enterpriseList.branches} /> */}
                 </div>
             )}
         </div>

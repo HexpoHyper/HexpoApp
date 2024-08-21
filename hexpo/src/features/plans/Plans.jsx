@@ -35,7 +35,7 @@ const Plans = () => {
         <text>Conoce nuestros planes y funcionalidades premium</text>
       </div>
       <div className="current-plan-container flex flex-row">
-        <div className="flex flex-column">
+        <div className="flex flex-column gap-1">
           <div>
             <text className="font-bold font-dark">Estado del plan</text>
             <text className={`font-light plan-status ${profile.status ? "active" : "inactive"}`}>
@@ -50,7 +50,7 @@ const Plans = () => {
           </text>
           <div>
             <text className="font-indigo">{"Siguiente pago: "}</text>
-            <text className="font-semibold font-indigo">{formatDate(nextPaymentDate)}</text>
+            {profile.last_payment && <text className="font-semibold font-indigo">{formatDate(nextPaymentDate)}</text>}
           </div>
         </div>
       </div>

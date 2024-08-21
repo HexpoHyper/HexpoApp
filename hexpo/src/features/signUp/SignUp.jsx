@@ -123,6 +123,12 @@ const SignUp = () => {
                         <text className='font-indigo font-medium'>¿Ya tienes una cuenta? <a href='/login'>Inicia sesión</a></text>
                     </div>
                 </form>
+                <div className="margin-1">
+                    <text className="font-small font-disabled">
+                        Al enviar reconoce que ha leído y acepta nuestra <a href="/" className="font-indigo">política de privacidad</a> y nuestros{' '}
+                        <a href="/" className="font-indigo">términos de servicio.</a>
+                    </text>
+                </div>
             </div>
             <div className='SignUp-hero-container'>
                 <img src="https://uploads-ssl.webflow.com/65384f64fc0a1608e6828a1c/655646d1da7855f9f8df933f_Capa_1.svg"/>

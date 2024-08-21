@@ -21,7 +21,7 @@ function App() {
 }
 
 function InnerApp() {
-  const { user, profile, token } = useAuth();
+  const { user, profile } = useAuth();
   const { enterpriseList, loading, error } = useEnterprise();
 
   const useLogger = false;
@@ -39,7 +39,7 @@ function InnerApp() {
         <text>{enterpriseList && JSON.stringify(enterpriseList)}</text>
       </div>
   }
-    <RouterProvider router={AppRouter(token)} />
+    <RouterProvider router={AppRouter(user)} />
     </>
   );
 }

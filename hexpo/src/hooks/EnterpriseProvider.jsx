@@ -68,8 +68,6 @@ const EnterpriseProvider = ({ children }) => {
         return () => clearInterval(interval);
     }, [user, fetchData]);
 
-
-
     return (
         <EnterpriseContext.Provider value={{ 
             enterpriseList, 

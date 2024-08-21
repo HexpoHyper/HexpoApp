@@ -44,16 +44,17 @@
 }
 
 .plan-status{
-    color: white;
-
+    margin: 1em;
     border-radius: 4em;
     padding: 0.5em;
 }
 
-.plan-status .active{
+.active{
     background-color: #3F00FF;
+    color:white;
 }
 
-.plan-status .inactive{
+.inactive{
     background-color: #EBF2F9;
+    color: black;
 }

@@ -5,20 +5,11 @@ const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(() => JSON.parse(localStorage.getItem('user')));
-    const [token, setToken] = useState(() => localStorage.getItem('token'));
     const [profile, setProfile] = useState(() => JSON.parse(localStorage.getItem('profile')));
-
-
-    useEffect(() => {
-        const savedToken = localStorage.getItem('token');
-        if (savedToken) {
-            setToken(savedToken);
-        }
-    }, []);
 
     const loginAction = async (data) => {
         try {
-            const response = await fetch(api.prod.base + '/auth/login', {
+            const response = await fetch(api.local.base + '/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -33,9 +24,7 @@ const AuthProvider = ({ children }) => {
     
             if (responseData && responseData.data) {
                 setUser(responseData.data.user);
-                setToken(responseData.data.session.access_token);
                 localStorage.setItem('user', JSON.stringify(responseData.data.user));
-                localStorage.setItem('token', responseData.data.session.access_token);
                 localStorage.setItem('profile', JSON.stringify(responseData.data.profile));
                 return true;
             } else {
@@ -65,7 +54,7 @@ const AuthProvider = ({ children }) => {
 
     const SignUpAction = async (data) => {
         try {
-            const response = await fetch(api.prod.base + '/auth/signUp', {
+            const response = await fetch(api.local.base + '/auth/signUp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -74,10 +63,8 @@ const AuthProvider = ({ children }) => {
             
             if (responseData && responseData.data) {
                 setUser(responseData.data.user);
-                setToken(responseData.data.session.access_token);
                 setProfile(responseData.data.profile);
                 localStorage.setItem('user', JSON.stringify(responseData.data.user));
-                localStorage.setItem('token', responseData.data.session.access_token);
                 return true;
             }
         } catch (error) {
@@ -88,12 +75,11 @@ const AuthProvider = ({ children }) => {
 
     const logoutAction = () => {
         setUser(null);
-        setToken(null);
         localStorage.clear();
     };
 
     return (
-        <AuthContext.Provider value={{ SignUpAction, loginAction, logoutAction, user, profile, token }}>
+        <AuthContext.Provider value={{ SignUpAction, loginAction, logoutAction, user, profile }}>
             {children}
         </AuthContext.Provider>
     );

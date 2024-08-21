@@ -12,13 +12,15 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../hooks/AuthProvider";
 import Modal from "../../global/components/modal/Modal";
 import Button from "../../global/components/button/Button";
+import { useEnterprise } from "../../../hooks/EnterpriseProvider";
 
 
 const NewEnterprise = () => {
 
     const navigator = useNavigate();
 
-    const { token, user, updateEnterpriseData } = useAuth();
+    const { setEnterpriseList } = useEnterprise();
+    const { token, user } = useAuth();
 
     const [formData, setFormData] = useState({
         enterpriseID: crypto.randomUUID(),
@@ -98,6 +100,14 @@ const NewEnterprise = () => {
             return false;
         }
         return true;
+    };
+
+    const updateEnterpriseData = (newEnterprise) => {
+        setEnterpriseList((prevList) => {
+            const updatedList = [...prevList, newEnterprise];
+            localStorage.setItem('enterpriseList', JSON.stringify(updatedList));
+            return updatedList;
+        });
     };
 
     const handleSubmit = async (event) => {

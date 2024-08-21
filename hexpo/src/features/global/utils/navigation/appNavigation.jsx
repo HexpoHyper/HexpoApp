@@ -10,21 +10,23 @@ import Planes from '../../../plans/Plans.jsx';
 import Login from '../../../login/Login.jsx';
 import RootLayout from '../../../../layouts/RootLayout.js';
 import SignUp from '../../../signUp/SignUp.jsx';
+import NewProduct from '../../../products/newProduct/NewProduct.jsx';
 
-const AppRouter = (token) => {
+const AppRouter = (user) => {
     return createBrowserRouter(
         createRoutesFromElements(
             <>
-                <Route path='*' element={token ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
+                <Route path='*' element={user ? <Navigate to="/empresas" replace/> : <Navigate to="/login" replace />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/registro' element={<SignUp />} />
 
-                <Route element={token ? <RootLayout /> : <Navigate to="/login" replace />}>
+                <Route element={user ? <RootLayout /> : <Navigate to="/login" replace />}>
                     <Route path='/dashboard' element={<Dashboard />} />
                     <Route path='/empresas' element={<Enterprises />} />
                     <Route path='/productos' element={<Products />} />
-                    <Route path='/empresas/registrar' element={<NewEnterprise />} />
+                    <Route path='/productos/registrar' element={<NewProduct />} />
                     <Route path='/productos/:id' element={<Products />} />
+                    <Route path='/empresas/registrar' element={<NewEnterprise />} />
                     <Route path='/empresas/:id' element={<EnterpriseProfile />} />
                     <Route path='/prospectos/:id' element={<CRM />} />
                     <Route path='/prospectos' element={<Leads />} />

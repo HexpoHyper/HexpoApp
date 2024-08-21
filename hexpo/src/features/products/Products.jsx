@@ -8,6 +8,8 @@ import { useAuth } from "../../hooks/AuthProvider";
 
 // Style
 import './Products.css';
+import { NavLink } from "react-router-dom";
+import Button from "../global/components/button/Button";
 
 const Products = () => {
 
@@ -23,7 +25,9 @@ const Products = () => {
                     <text>Administra tus productos, crea y modifica productos para tu empresa.</text>
                 </div>
                 <div className="flex flex-row">
-                    <button className="button button-primary">Agregar Producto</button>
+                    <NavLink to="/productos/registrar" className="button">
+                        <Button text="Nuevo Producto" />
+                    </NavLink>
                 </div>
             </div>
             <div>
