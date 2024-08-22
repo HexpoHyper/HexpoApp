@@ -1,10 +1,12 @@
+import api from '../../global/utils/api/Routing';
+
 async function newInteraction(lead, interaction) {
     try {
 
         if (!lead.interactions) lead.interactions = [];
         lead.interactions.push(interaction);
 
-        const response = await fetch(`http://localhost:8080/api/v1/user/lead/${lead.id}/interaction`, {
+        const response = await fetch(api.prod.base + `/user/lead/${lead.id}/interaction`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +30,7 @@ async function putInteraction(lead, interaction, user) {
     try {
 
             lead.interactions = lead.interactions.map(interact => interact.manager === user ? interaction : interact);
-            const response = await fetch(`http://localhost:8080/api/v1/user/lead/${lead.id}/interaction`, {
+            const response = await fetch(api.prod.base + `/user/lead/${lead.id}/interaction`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
