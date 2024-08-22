@@ -19,7 +19,7 @@ const useLeads = (userId) => {
       let query = supabase
         .from('requirement')
         .select('*')
-        .eq('status', 'local')
+        .eq('status', 'open')
         .in('category', uniqueCategories)
         .order('creation_date', { ascending: true });
       
