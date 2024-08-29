@@ -11,7 +11,6 @@ const useLeads = (userId) => {
   const [channel, setChannel] = useState(null);
   const { uniqueCategories } = useEnterprise();
 
-  // Fetch leads function
   const fetchLeads = useCallback(async () => {
     try {
       setLoading(true);
@@ -42,7 +41,6 @@ const useLeads = (userId) => {
     }
   }, [uniqueCategories]);
 
-  // Effect to handle fetching leads from local storage or Supabase
   useEffect(() => {
     const storedLeads = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (storedLeads) {
@@ -59,7 +57,6 @@ const useLeads = (userId) => {
       fetchLeads(); 
     }
 
-    // Cleanup function to unsubscribe from the channel
     const cleanup = () => {
       if (channel) {
         channel.unsubscribe();
@@ -67,7 +64,6 @@ const useLeads = (userId) => {
       }
     };
 
-    // Setup subscription to real-time changes
     const newChannel = supabase.channel(`leads:${userId}`)
       .on('postgres_changes', {
         event: '*',
